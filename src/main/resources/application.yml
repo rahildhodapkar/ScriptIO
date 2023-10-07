@@ -2,3 +2,9 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/localdb
+  profiles:
+    active: development
+  security:
+    user:
+      name: user
+      password: password

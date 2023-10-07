@@ -1,4 +1,4 @@
-package com.ml.epicfuntime;
+package com.ml.epicfuntime.config;
 
 import com.ml.epicfuntime.service.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
@@ -33,7 +33,11 @@ public class SecurityConfiguration {
                 )
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login").permitAll()
+                        .requestMatchers(
+                                "/login",
+                                "/createAccount",
+                                "/success"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .userDetailsService(customUserDetailsService)
