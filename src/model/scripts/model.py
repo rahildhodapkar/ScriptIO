@@ -2,9 +2,12 @@ import tensorflow as tf
 
 # load dataset here
 mnist = tf.keras.datasets.mnist
-
-tf.simulation.datasets.emnist.load_data(
-    only_digits=True, cache_dir=None
+(ds_train, ds_test), ds_info = tfds.load(
+    'mnist',
+    split=['train', 'test'],
+    shuffle_files=True,
+    as_supervised=True,
+    with_info=True,
 )
 x_train, x_test = x_train / 255.0, x_test / 255.0
 
