@@ -1,10 +1,10 @@
 package com.ml.epicfuntime.service;
 
 import com.ml.epicfuntime.model.Role;
+import com.ml.epicfuntime.model.SecurityUser;
 import com.ml.epicfuntime.model.User;
 import com.ml.epicfuntime.repository.RoleRepository;
 import com.ml.epicfuntime.repository.UserRepository;
-import com.rd.recipefinder.model.SecurityUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

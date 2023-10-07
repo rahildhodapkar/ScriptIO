@@ -1,7 +1,5 @@
-package com.rd.recipefinder.model;
+package com.ml.epicfuntime.model;
 
-import com.ml.epicfuntime.model.Role;
-import com.ml.epicfuntime.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
