@@ -4,19 +4,17 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "users")
+@Document(collection = "roles")
 @Data
-public class User {
+public class Role {
     @Id
     private String id;
 
     private String username;
-    private String email;
-    private String password;
+    private String role;
 
-    public User(String username, String email, String password) {
+    public Role(String username, String role) {
         this.username = username;
-        this.email = email;
-        this.password = password;
+        this.role = role;
     }
 }
