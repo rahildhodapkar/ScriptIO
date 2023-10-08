@@ -2,29 +2,121 @@
 <html lang="en">
 <head>
     <title>Please Log In</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+    body {
+        margin: 0px;
+        padding: 0px;
+        font-family: sans-serif;
+    }
+
+    #main-header {
+        color: #85756e;
+    }
+
+    .background-login {
+        position: absolute;
+        background-color: #e8e9eb;
+        width: 500px;
+        height: 400px;
+        border-radius: 25px;
+        left: 50%;
+        top: 0%;
+        transform: translateX(-50%);
+        margin: 7% auto;
+        padding: 25px 10px;
+        z-index: -5;
+    }
+
+    .login-container {
+        background-color: #e8e9eb;
+        width: 30%;
+        height: auto;
+        margin: 7% auto;
+        padding: 25px 10px;
+        z-index: 3;
+    }
+
+    .create-account {
+        float:right;
+        padding: 0px 15px;
+    }
+
+    input {
+        width: 375px;
+        border-radius: 2.5px;
+        padding: 8px;
+        border: transparent;
+    }
+
+    .btn-primary {
+        background: #85756e;
+        border: 1px solid #85756e;
+        transition-property: transform;
+        transition-duration: .3s;
+    }
+
+    .invalid-login {
+        color: #85756e;
+    }
+
+    .logout {
+        color: #85756e;
+    }
+
+    .btn-primary:hover {
+        background: #85756e;
+        color: #fff;
+        border: 1px solid #85756e;
+        transform: scale(1.05);
+    }
+
+    .btn:active {
+        background: #85756e;
+        color: #fff;
+    }
+
+    .btn-primary:active {
+        background: #85756e;
+        color: #fff;
+    }
+
+    .create-account {
+        color: #85756e;
+    }
+
+    </style>
 </head>
 <body>
-<h1>Please Log In</h1>
-<div th:if="${param.error}">
-    Invalid username and password.</div>
-<div th:if="${param.logout}">
-    You have been logged out.</div>
-<form th:action="@{/login}" method="post">
-    <div>
-        <label>
-            <input type="text" name="username" placeholder="Username"/>
-        </label>
+    <div class="background-login"></div>
+    <div class="login-container">
+        <h1 id="main-header" class="text-center mt-4 mb-4">Please Log In</h1>
+        <div th:if="${param.error}" class="invalid-login">
+            Invalid username and password.</div>
+        <div th:if="${param.logout}" class="logout">
+            You have been logged out.</div>
+        <div class="container">
+            <form th:action="@{/login}" method="post" class="login">
+                <div class="mb-3">
+                    <label>
+                        <input type="text" name="username" placeholder="Username"/>
+                    </label>
+                </div>
+                <div class="mb-3">
+                    <label>
+                        <input type="password" name="password" placeholder="Password"/>
+                    </label>
+                </div>
+                <div class="mb-3">
+                    <input class="btn btn-primary col-lg-12 col-12 mt-2 mb-3" type="submit" value="Log in" />
+                </div>
+            </form>
+        </div>
+        <a href="/createAccount" class="create-account">Create Account</a>
     </div>
-    <div>
-        <label>
-            <input type="password" name="password" placeholder="Password"/>
-        </label>
-    </div>
-    <input type="submit" value="Log in" />
-</form>
-<a href="/createAccount"><button>Create Account</button></a>
 <!--<a href="/forgotPasswordInstructions"><button>Forgot Password</button></a>-->
 <!--<a href="/recipeSearch"><button>Recipe Search</button></a>-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

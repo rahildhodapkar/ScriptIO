@@ -3,32 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <title>Please Enter Account Information</title>
+  <style>
+body {
+        margin: 0px;
+        padding: 0px;
+        font-family: sans-serif;
+    }
+
+    #main-header {
+        color: #85756e;
+    }
+
+    .background-account {
+        position: absolute;
+        background-color: #e8e9eb;
+        width: 500px;
+        height: 350px;
+        border-radius: 25px;
+        left: 50%;
+        top: 0%;
+        transform: translateX(-50%);
+        margin: 7% auto;
+        padding: 25px 10px;
+        z-index: -5;
+    }
+
+    .account-container {
+        background-color: #e8e9eb;
+        width: 30%;
+        height: auto;
+        margin: 7% auto;
+        padding: 25px 10px;
+        z-index: 3;
+    }
+
+    .create-account {
+        float:right;
+        padding: 0px 15px;
+    }
+
+    input {
+        width: 95%;
+        border-radius: 2.5px;
+        border: transparent;
+        padding: 8px;
+    }
+
+    .btn-primary {
+        background: #85756e;
+        width: 100%;
+        color: #fff;
+        border: 1px solid #85756e;
+        transition-property: transform;
+        transition-duration: .3s;
+    }
+
+    .invalid-login {
+        color: #85756e;
+    }
+
+    .logout {
+        color: #85756e;
+    }
+
+    .btn-primary:hover {
+        background: #85756e;
+        color: #fff;
+        border: 1px solid #85756e;
+        transform: scale(1.05);
+    }
+
+    .create-account {
+        color: #85756e;
+    }
+  </style>
 </head>
 <body>
-<h1>Please Enter Account Information</h1>
-<div th:if="${error}" th:text="${error}" class="alert alert-danger"></div>
-<form th:action="@{/createAccount}" method="post">
-  <div>
-    <label>
-      <input type="text" name="username" placeholder="Username"/>
-    </label>
+  <div class="background-account"></div>
+  <div class="account-container">
+    <h1 id="main-header">Please Enter Account Information</h1>
+    <div th:if="${error}" th:text="${error}" class="alert alert-danger"></div>
+
+    <div class="container">
+      <form th:action="@{/createAccount}" method="post">
+        <div class="my-3">
+          <label>
+            <input type="text" name="username" placeholder="Username"/>
+          </label>
+        </div>
+        <div class="my-3">
+          <label>
+            <input type="password" name="password" placeholder="Password"/>
+          </label>
+        </div>
+        <div class="my-3">
+          <label>
+            <input type="password" name="reEnterPassword" placeholder="Re-enter Password"/>
+          </label>
+        </div>
+        <div class="my-3">
+          <label>
+            <input type="email" name="email" placeholder="Email"/>
+          </label>
+        </div>
+        <div class="mb-3">
+          <input class="btn btn-primary col-lg-12 col-12 mt-2 mb-3" type="submit" value="Create Account" />
+        </div>
+      </form>
+    </div>
   </div>
-  <div>
-    <label>
-      <input type="password" name="password" placeholder="Password"/>
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="password" name="reEnterPassword" placeholder="Re-enter Password"/>
-    </label>
-  </div>
-  <div>
-    <label>
-      <input type="email" name="email" placeholder="Email"/>
-    </label>
-  </div>
-  <input type="submit" value="Create Account" />
-</form>
 </body>
 </html>
