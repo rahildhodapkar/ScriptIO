@@ -112,6 +112,9 @@ function execute_process(){
     const pngDataURL = canvas.toDataURL('image/png');
     const pngImage = new Image();
     pngImage.src = pngDataURL;
+
+    
+
     clearCanvas()
 }
 
