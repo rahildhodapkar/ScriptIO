@@ -9,6 +9,21 @@
         margin: 0px;
         padding: 0px;
         font-family: sans-serif;
+        color: #fff;
+        background: url("/layered-waves-haikei.svg");
+        background-repeat: none;
+        background-position: center;
+        background-size: cover;
+
+    }
+
+    .section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 400px;
+        padding: 100px;
     }
 
     #main-header {
@@ -19,14 +34,14 @@
         position: absolute;
         background-color: #e8e9eb;
         width: 500px;
-        height: 400px;
+        height: 600px;
         border-radius: 25px;
         left: 50%;
         top: 0%;
         transform: translateX(-50%);
         margin: 7% auto;
-        padding: 25px 10px;
-        z-index: -5;
+        padding: 5px 10px;
+        z-index: 1;
     }
 
     .login-container {
@@ -44,7 +59,7 @@
     }
 
     input {
-        width: 200%;
+        width: 175%;
         border-radius: 2.5px;
         padding: 8px;
         border: transparent;
@@ -97,42 +112,45 @@
         .background-login {
             width: 90%;
             top: 0%;
-            height: 300px;
+            height: 500px;
         }
 
         input {
-            width: 255%;
+            width: 175%;
+            overflow: hidden;
         }
     }
-
     </style>
 </head>
 <body>
-    <div class="background-login"></div>
-    <div class="login-container">
-        <h1 id="main-header" class="text-center mt-4 mb-4">Please Log In</h1>
-        <div th:if="${param.error}" class="invalid-login">
-            Invalid username and password.</div>
-        <div th:if="${param.logout}" class="logout">
-            You have been logged out.</div>
-        <div class="container">
-            <form th:action="@{/login}" method="post" class="login">
-                <div class="mb-3">
-                    <label>
-                        <input type="text" name="username" placeholder="Username"/>
-                    </label>
-                </div>
-                <div class="mb-3">
-                    <label>
-                        <input type="password" name="password" placeholder="Password"/>
-                    </label>
-                </div>
-                <div class="mb-3">
-                    <input class="btn btn-primary col-lg-12 col-12 mt-2 mb-3" type="submit" value="Log in" />
-                </div>
-            </form>
+    <div class="section">
+        <div class="background-login"></div>
+        <div class="login-container">
+            <h1 id="main-header" class="text-center mt-4 mb-4">Please Log In</h1>
+            <div th:if="${param.error}" class="invalid-login">
+                Invalid username and password.</div>
+            <div th:if="${param.logout}" class="logout">
+                You have been logged out.</div>
+            <div class="container">
+                <form th:action="@{/login}" method="post" class="login">
+                    <div class="mb-3">
+                        <label>
+                            <input type="text" name="username" placeholder="Username"/>
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label>
+                            <input type="password" name="password" placeholder="Password"/>
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <input class="btn btn-primary col-lg-12 col-12 mt-2 mb-3" type="submit" value="Log in" />
+                    </div>
+                </form>
+            </div>
+            <a href="/createAccount" class="create-account">Create Account</a>
         </div>
-        <a href="/createAccount" class="create-account">Create Account</a>
+        <div class="spacer layer1"></div>
     </div>
 <!--<a href="/forgotPasswordInstructions"><button>Forgot Password</button></a>-->
 <!--<a href="/recipeSearch"><button>Recipe Search</button></a>-->

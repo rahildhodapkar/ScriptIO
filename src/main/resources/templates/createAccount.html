@@ -8,6 +8,19 @@ body {
         margin: 0px;
         padding: 0px;
         font-family: sans-serif;
+        background: url("layered-waves-haikei.svg");
+        background-repeat: none;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 400px;
+        padding: 100px;
     }
 
     #main-header {
@@ -18,7 +31,7 @@ body {
         position: absolute;
         background-color: #e8e9eb;
         width: 500px;
-        height: 350px;
+        height: 450px;
         border-radius: 25px;
         left: 50%;
         top: 0%;
@@ -85,38 +98,40 @@ body {
   </style>
 </head>
 <body>
-  <div class="background-account"></div>
-  <div class="account-container">
-    <h1 id="main-header">Please Enter Account Information</h1>
-    <div th:if="${error}" th:text="${error}" class="alert alert-danger"></div>
+    <div class="section">
+    <div class="background-account"></div>
+    <div class="account-container">
+      <h1 id="main-header">Please Enter Account Information</h1>
+      <div th:if="${error}" th:text="${error}" class="alert alert-danger"></div>
 
-    <div class="container">
-      <form th:action="@{/createAccount}" method="post">
-        <div class="my-3">
-          <label>
-            <input type="text" name="username" placeholder="Username"/>
-          </label>
-        </div>
-        <div class="my-3">
-          <label>
-            <input type="password" name="password" placeholder="Password"/>
-          </label>
-        </div>
-        <div class="my-3">
-          <label>
-            <input type="password" name="reEnterPassword" placeholder="Re-enter Password"/>
-          </label>
-        </div>
-        <div class="my-3">
-          <label>
-            <input type="email" name="email" placeholder="Email"/>
-          </label>
-        </div>
-        <div class="mb-3">
-          <input class="btn btn-primary col-lg-12 col-12 mt-2 mb-3" type="submit" value="Create Account" />
-        </div>
-      </form>
+      <div class="container">
+        <form th:action="@{/createAccount}" method="post">
+          <div class="my-3">
+            <label>
+              <input type="text" name="username" placeholder="Username"/>
+            </label>
+          </div>
+          <div class="my-3">
+            <label>
+              <input type="password" name="password" placeholder="Password"/>
+            </label>
+          </div>
+          <div class="my-3">
+            <label>
+              <input type="password" name="reEnterPassword" placeholder="Re-enter Password"/>
+            </label>
+          </div>
+          <div class="my-3">
+            <label>
+              <input type="email" name="email" placeholder="Email"/>
+            </label>
+          </div>
+          <div class="mb-3">
+            <input class="btn btn-primary col-lg-12 col-12 mt-2 mb-3" type="submit" value="Create Account" />
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
+  </div>>
 </body>
 </html>
