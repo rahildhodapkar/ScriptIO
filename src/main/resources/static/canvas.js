@@ -32,6 +32,7 @@ execute_erase.addEventListener("click",execute_erase_f)
 
 // Functions for drawing
 function startPaint(event) {
+    console.log("hello")
     if(timeoutId){
         clearTimeout(timeoutId)
     }
@@ -112,10 +113,9 @@ function execute_process(){
     const pngDataURL = canvas.toDataURL('image/png');
     const pngImage = new Image();
     pngImage.src = pngDataURL;
+    clearCanvas()
 
     
-
-    clearCanvas()
 }
 
 function execute_draw_f(){
@@ -128,4 +128,5 @@ function execute_erase_f(){
 
 
 }
+
 
