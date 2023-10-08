@@ -25,7 +25,6 @@ googleapis-common-protos==1.60.0
 grpcio==1.59.0
 grpcio-status==1.59.0
 h5py==3.9.0
-htr-pipeline @ file:///Users/ayan/hackru23/epicfuntime/src/model/scripts/HTRPipeline
 humanfriendly==10.0
 idna==3.4
 importlib-resources==6.1.0
