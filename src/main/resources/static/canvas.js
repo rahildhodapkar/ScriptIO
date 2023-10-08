@@ -1,5 +1,7 @@
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
+context.fillStyle = 'White';
+context.fillRect(0,0,canvas.width,canvas.height);
 const clearBtn = document.getElementById("clearBtn");
 const undoBtn = document.getElementById("undoBtn");
 const execute_btn = document.getElementById("execute");
@@ -28,7 +30,6 @@ execute_erase.addEventListener("click", execute_erase_f);
 
 // Functions for drawing
 function startPaint(event) {
-    console.log("hello");
     if (timeoutId) {
         clearTimeout(timeoutId); // Clear the existing timeout if any
         timeoutId = null; // Reset timeoutId to null
@@ -61,6 +62,8 @@ function draw(event) {
 function clearCanvas() {
     context.clearRect(0, 0, canvas.width, canvas.height);
     drawingHistory.length = 0; // Clear the drawing history
+    context.fillStyle = 'White';
+    context.fillRect(0,0,canvas.width,canvas.height);
 }
 
 function saveDrawingState() {
@@ -80,8 +83,21 @@ function undoLastStroke() {
 
 function execute_process() {
     const pngDataURL = canvas.toDataURL('image/png');
-    const pngImage = new Image();
-    pngImage.src = pngDataURL;
+    console.log(pngDataURL);
+    fetch('/canvas', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({image:pngDataURL})
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
     clearCanvas();
 }
 
