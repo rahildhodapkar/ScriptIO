@@ -44,7 +44,7 @@
     }
 
     input {
-        width: 375px;
+        width: 200%;
         border-radius: 2.5px;
         padding: 8px;
         border: transparent;
@@ -84,6 +84,25 @@
 
     .create-account {
         color: #85756e;
+    }
+
+    @media screen and (max-width: 1000px) {
+        .login-container {
+            padding: 5px 0 0 0;
+            width: 90%;
+            margin: 7px auto;
+            border-radius: 25px;
+        }
+
+        .background-login {
+            width: 90%;
+            top: 0%;
+            height: 300px;
+        }
+
+        input {
+            width: 255%;
+        }
     }
 
     </style>
