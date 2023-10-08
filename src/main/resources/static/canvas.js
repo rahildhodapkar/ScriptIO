@@ -81,9 +81,18 @@ function undoLastStroke() {
     }
 }
 
+function insertTextAtCursor(text) {
+    const textarea = document.getElementById("myTextArea");
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const cursorPosition = (start === end && start === 0) ? textarea.value.length : start;
+    textarea.value = textarea.value.substring(0, cursorPosition) + text + textarea.value.substring(cursorPosition);
+    textarea.selectionStart = cursorPosition + text.length;
+    textarea.selectionEnd = cursorPosition + text.length;
+}
+
 function execute_process() {
     const pngDataURL = canvas.toDataURL('image/png');
-    console.log(pngDataURL);
     fetch('/canvas', {
         method: 'POST',
         headers: {
@@ -91,9 +100,12 @@ function execute_process() {
         },
         body: JSON.stringify({image:pngDataURL})
     })
-    .then(response => response.json())
+    .then(response => response.text())
     .then(data => {
-        console.log('Success', data);
+        const textarea = document.getElementById("myTextArea");
+        if (data !== "Python script execution failed") {
+            textarea.value += data;
+        }
     })
     .catch((error) => {
         console.error('Error:', error);

@@ -22,7 +22,6 @@ public class ImageController {
             os.write(imageBytes);
         }
         String jsonFilePath = "scenic-lane-401400-17efc3a4fb60.json";
-        System.out.println(tempFile.getFileName().toString());
         ProcessBuilder processBuilder = new ProcessBuilder("python", "gvision.py", "-i", tempFile.toString(), "-c", jsonFilePath);
         processBuilder.directory(new File("pyscripts/scripts"));
         Process process = processBuilder.start();
@@ -51,6 +50,6 @@ public class ImageController {
 
         Files.delete(tempFile);
 
-        return ResponseEntity.ok("Image processed successfully. Python Output: " + output);
+        return ResponseEntity.ok(output.toString());
     }
 }
