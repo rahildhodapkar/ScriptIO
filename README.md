@@ -1,5 +1,4 @@
-# epicfuntime
-Epic fun time
+# Handwriting Recognition
 
 Download these two files as well as the requirements.txt:
 pip install opencv-contrib-python
